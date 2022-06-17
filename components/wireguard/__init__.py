@@ -45,10 +45,12 @@ CONFIG_SCHEMA = (
             cv.Required(CONF_ALLOWED_IP_MASK): cv.string,
             cv.Optional(CONF_LOCAL_PORT, 11010): cv.port,
             cv.Optional(CONF_SENSOR_PEER_IP_ADDRESS): text_sensor.text_sensor_schema(
-                icon = ICON_WIFI)
+                icon=ICON_WIFI
+            ),
         }
     )
 ).extend(cv.COMPONENT_SCHEMA)
+
 
 def to_code(config):
     var = cg.new_Pvariable(config[CONF_ID])
