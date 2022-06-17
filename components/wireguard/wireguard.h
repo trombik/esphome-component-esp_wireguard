@@ -17,11 +17,11 @@ class WireGuard : public Component {
   void loop() override;
   void dump_config() override;
   void set_peer_ip_address(const std::string address) { peer_ip_address = address; }
-  void set_peer_port(const uint32_t port ) { peer_port = port; }
-  void set_peer_public_key(const std::string public_key ) { peer_public_key = public_key; }
-  void set_allowed_ip_address(const std::string address ) { allowed_ip_address = address; }
-  void set_allowed_ip_mask(const std::string mask ) { allowed_ip_mask = mask; }
-  void set_local_port(const uint32_t port ) { local_port = port; }
+  void set_peer_port(const uint32_t port) { peer_port = port; }
+  void set_peer_public_key(const std::string public_key) { peer_public_key = public_key; }
+  void set_allowed_ip_address(const std::string address) { allowed_ip_address = address; }
+  void set_allowed_ip_mask(const std::string mask) { allowed_ip_mask = mask; }
+  void set_local_port(const uint32_t port) { local_port = port; }
   // void on_safe_shutdown() override {}
 
  protected:
@@ -31,7 +31,6 @@ class WireGuard : public Component {
   std::string peer_public_key = "";
   std::string allowed_ip_address = "";
   std::string allowed_ip_mask = "";
-
 };
-}
-}
+}  // namespace wireguard
+}  // namespace esphome
