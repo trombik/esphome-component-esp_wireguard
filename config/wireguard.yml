@@ -1,0 +1,36 @@
+substitutions:
+  my_name: wireguard
+
+esphome:
+  name: ${my_name}
+  board: esp32dev
+  platform: esp32
+  libraries:
+    - https://github.com/trombik/esp_wireguard#bugfix-cplus
+  platformio_options:
+    build_flags:
+      - "-DCONFIG_WIREGUARD_MAX_SRC_IPS=1"
+      - "-DCONFIG_WIREGUARD_MAX_PEERS=1"
+      - "-DCONFIG_MAX_INITIATIONS_PER_SECOND=2"
+      - "-DCONFIG_WIREGUARD_ESP_TCPIP_ADAPTER"
+
+external_components:
+  - source:
+      type: local
+      path: ../components
+
+logger:
+
+ota:
+  password: !secret ota_password
+
+wifi:
+  ssid: !secret wifi_ssid
+  password: !secret wifi_password
+
+wireguard:
+  peer_ip_address: 8.8.8.8
+  peer_public_key: foobar
+  allowed_ip_address: 192.168.1.1
+  allowed_ip_mask: 255.255.255.0
+
